@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Montu Soni — Web & App Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{
+  fontFamily:{display:['Sora','sans-serif'],body:['Space Grotesk','sans-serif']},
+  colors:{dark:'#070a14',card:'#0d1224'}
+}}}
+</script>
+<style>
+*{font-family:'Space Grotesk',sans-serif}
+body{background:#070a14;color:#cbd5e1;overflow-x:hidden}
+h1,h2,h3,.font-display{font-family:'Sora',sans-serif}
+.grad-text{background:linear-gradient(90deg,#818cf8,#22d3ee,#e879f9,#818cf8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 6s linear infinite}
+@keyframes gradShift{to{background-position:300% 0}}
+.btn-primary{background:linear-gradient(90deg,#6366f1,#a855f7);transition:.35s;box-shadow:0 8px 28px rgba(124,58,237,.4);position:relative;overflow:hidden}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px rgba(124,58,237,.6)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transition:.6s}
+.btn-primary:hover::after{left:140%}
+.btn-ghost{border:1px solid rgba(148,163,184,.3);transition:.35s;position:relative;overflow:hidden}
+.btn-ghost:hover{border-color:#818cf8;box-shadow:0 0 24px rgba(129,140,248,.3);transform:translateY(-3px)}
+.glass{background:rgba(13,18,36,.65);backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.12)}
+.card-hover{transition:.4s cubic-bezier(.2,.8,.3,1.2)}
+.card-hover:hover{transform:translateY(-10px);border-color:rgba(129,140,248,.5);box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 40px rgba(99,102,241,.15)}
+.reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.nav-link{position:relative;transition:.3s}
+.nav-link::after{content:'';position:absolute;left:50%;bottom:-5px;width:0;height:2px;background:linear-gradient(90deg,#818cf8,#22d3ee);transition:.35s;transform:translateX(-50%)}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-link:hover,.nav-link.active{color:#fff}
+.pulse-dot{animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 12px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(2deg)}}
+.float-anim{animation:float 6s ease-in-out infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-inner{animation:marquee 24s linear infinite}
+@keyframes blob{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-50px) scale(1.15)}66%{transform:translate(-30px,30px) scale(.9)}}
+.blob{animation:blob 12s ease-in-out infinite;filter:blur(80px);position:absolute;border-radius:50%;pointer-events:none}
+.typing::after{content:'|';animation:blink 1s step-end infinite;color:#22d3ee}
+@keyframes blink{50%{opacity:0}}
+.tilt{transform-style:preserve-3d;transition:transform .3s ease}
+input,select,textarea{transition:.3s}
+input:focus,select:focus,textarea:focus{border-color:#818cf8!important;box-shadow:0 0 0 3px rgba(129,140,248,.15)}
+.skill-chip{transition:.3s}
+.skill-chip:hover{transform:translateY(-4px) scale(1.05);border-color:#22d3ee;color:#22d3ee}
+@keyframes scrollWheel{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(10px)}100%{opacity:0}}
+.scroll-wheel{animation:scrollWheel 1.8s ease-in-out infinite}
+
+</style>
+</head>
+<body>
+<nav class="fixed top-0 w-full z-50 glass" style="border-left:none;border-right:none;border-top:none">
+  <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-display font-bold text-white text-lg shadow-lg shadow-purple-500/40 group-hover:rotate-12 transition-transform duration-300">MS</div>
+      <span class="font-display font-bold text-white text-lg">Montu <span class="grad-text">Soni</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8"><a href="index.html" class="nav-link  text-sm font-medium text-slate-300">Home</a><a href="services.html" class="nav-link  text-sm font-medium text-slate-300">Services</a><a href="portfolio.html" class="nav-link  text-sm font-medium text-slate-300">Portfolio</a><a href="get-started.html" class="nav-link  text-sm font-medium text-slate-300">Get Started</a><a href="contact.html" class="nav-link active text-sm font-medium text-slate-300">Contact</a></div>
+    <div class="flex items-center gap-3">
+      <a href="get-started.html" class="hidden sm:inline-block btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Hire Me 🚀</a>
+      <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="md:hidden text-white text-2xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-5 pb-5 flex flex-col gap-4">
+    <a href="index.html" class="text-slate-300">Home</a><a href="services.html" class="text-slate-300">Services</a>
+    <a href="portfolio.html" class="text-slate-300">Portfolio</a><a href="get-started.html" class="text-slate-300">Get Started</a>
+    <a href="contact.html" class="text-slate-300">Contact</a>
+  </div>
+</nav>
+<section class="pt-40 pb-12 text-center px-5 relative">
+  <div class="blob w-[400px] h-[400px] bg-indigo-600/20 -top-24 -left-24"></div>
+  <p class="text-cyan-400 font-semibold tracking-widest text-sm mb-3 reveal">CONTACT</p>
+  <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-5 reveal">Let's <span class="grad-text">Talk!</span> 💬</h1>
+  <p class="text-slate-400 max-w-2xl mx-auto reveal">Questions, quotes or free consultation — reach out directly. Fast replies guaranteed! ⚡</p>
+</section>
+<section class="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-2 gap-8 relative">
+  <div class="space-y-5">
+    <a href="tel:+919644108484" class="glass card-hover rounded-2xl p-7 flex items-center gap-5 reveal block group">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl shadow-lg shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-6 transition-transform">📞</div>
+      <div><h3 class="font-display font-bold text-white">Call Me</h3><p class="text-slate-400 text-sm">+91 96441 08484</p></div>
+    </a>
+    <a href="https://wa.me/919644108484" target="_blank" class="glass card-hover rounded-2xl p-7 flex items-center gap-5 reveal block group">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-2xl shadow-lg shadow-green-500/30 group-hover:scale-110 group-hover:rotate-6 transition-transform">💬</div>
+      <div><h3 class="font-display font-bold text-white">WhatsApp</h3><p class="text-slate-400 text-sm">24×7 WhatsApp support — super fast replies</p></div>
+    </a>
+    <div class="glass card-hover rounded-2xl p-7 flex items-center gap-5 reveal group">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30 group-hover:scale-110 group-hover:rotate-6 transition-transform">📍</div>
+      <div><h3 class="font-display font-bold text-white">Location</h3><p class="text-slate-400 text-sm">Indore, Madhya Pradesh, India</p></div>
+    </div>
+    <div class="glass card-hover rounded-2xl p-7 reveal">
+      <h3 class="font-display font-bold text-white mb-4">🕐 Working Hours</h3>
+      <div class="text-sm text-slate-400 space-y-2.5">
+        <p class="flex justify-between border-b border-white/5 pb-2.5"><span>Monday – Saturday</span><span class="text-cyan-300">9 AM – 9 PM</span></p>
+        <p class="flex justify-between"><span>Sunday</span><span class="text-cyan-300">By Appointment</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="glass rounded-3xl p-8 h-fit">
+    <h3 class="font-display font-bold text-white text-xl mb-2">📩 Send a Message</h3>
+    <p class="text-slate-400 text-sm mb-7">Fill the form — your message goes straight to my WhatsApp.</p>
+    <form id="contactForm" class="space-y-4">
+      <input required id="c-name" placeholder="Your Name *" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-slate-500 focus:outline-none">
+      <input required id="c-phone" placeholder="Phone Number *" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-slate-500 focus:outline-none">
+      <textarea required id="c-msg" rows="5" placeholder="Your Message *" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-slate-500 focus:outline-none"></textarea>
+      <button type="submit" class="btn-primary w-full text-white font-bold py-4 rounded-xl">Send on WhatsApp 💬</button>
+    </form>
+  </div>
+</section>
+<script>
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var msg='Hi Montu! 👋\n\nName: '+document.getElementById('c-name').value+'\nPhone: '+document.getElementById('c-phone').value+'\nMessage: '+document.getElementById('c-msg').value;
+  window.open('https://wa.me/919644108484?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+
+<footer class="mt-24 border-t border-white/10 relative">
+  <div class="max-w-7xl mx-auto px-5 py-14 grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-display font-bold text-white">MS</div>
+        <span class="font-display font-bold text-white text-lg">Montu Soni</span>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed">Professional Website & App Developer based in Indore, India. Building modern digital products that help businesses grow online. 🚀</p>
+    </div>
+    <div>
+      <h4 class="font-display font-semibold text-white mb-4">Quick Links</h4>
+      <div class="flex flex-col gap-2.5 text-sm text-slate-400">
+        <a href="services.html" class="hover:text-cyan-300 transition">Services</a>
+        <a href="portfolio.html" class="hover:text-cyan-300 transition">Portfolio</a>
+        <a href="get-started.html" class="hover:text-cyan-300 transition">Get Started</a>
+        <a href="contact.html" class="hover:text-cyan-300 transition">Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-display font-semibold text-white mb-4">Get In Touch</h4>
+      <p class="text-slate-400 text-sm mb-2.5">📞 <a href="tel:+919644108484" class="hover:text-cyan-300 transition">+91 96441 08484</a></p>
+      <p class="text-slate-400 text-sm mb-2.5">📍 Indore, Madhya Pradesh, India</p>
+      <p class="text-slate-400 text-sm">💬 <a href="https://wa.me/919644108484" class="hover:text-cyan-300 transition">WhatsApp Support Available</a></p>
+    </div>
+  </div>
+  <div class="text-center text-slate-500 text-xs pb-8">© 2026 Montu Soni. All Rights Reserved. Crafted with ❤️ in Indore, India</div>
+</footer>
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body></html>
