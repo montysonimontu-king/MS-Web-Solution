@@ -300,57 +300,232 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important;box-shado
 
 </style>
 </head>
-<body>   <!-- Talk Button -->
-<button id="chatBtn">Talk</button>
+<body> <!-- Chat Trigger Button -->
+<button id="chatBtn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>Chat with us</span>
+</button>
 
 <!-- Chatbot Panel -->
 <div id="chatPanel">
-    <iframe
-        src="https://tinyurls.in/zNfRja"
-        width="100%"
-        height="100%"
-        frameborder="0">
-    </iframe>
+    <!-- Chat Header -->
+    <div class="chat-header">
+        <div class="chat-title">
+            <span class="status-dot"></span>
+            <h3>AI Assistant</h3>
+        </div>
+        <div class="chat-actions">
+            <!-- Open in New Site Button -->
+            <button id="openSiteBtn" title="Open in new tab">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+            </button>
+            <!-- Close Button -->
+            <button id="closeBtn" title="Close chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Iframe Container -->
+    <div class="chat-body">
+        <iframe 
+            src="https://tinyurls.in/zNfRja" 
+            width="100%" 
+            height="100%" 
+            frameborder="0">
+        </iframe>
+    </div>
 </div>
 
 <style>
-#chatBtn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#007bff;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    z-index:1000;
-}
+    /* Root Variables for Colors */
+    :root {
+        --primary-color: #007bff;
+        --primary-dark: #0056b3;
+        --header-bg: #1e293b;
+    }
 
-#chatPanel{
-    position:fixed;
-    top:0;
-    right:-400px;
-    width:400px;
-    height:100vh;
-    background:white;
-    transition:0.3s;
-    z-index:999;
-    box-shadow:-2px 0 10px rgba(0,0,0,0.2);
-}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-#chatPanel.open{
-    right:0;
-}
+    /* Floating Chat Button */
+    #chatBtn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        cursor: pointer;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    #chatBtn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Chat Panel */
+    #chatPanel {
+        position: fixed;
+        bottom: 100px; /* Sits right above the button */
+        right: 25px;
+        width: 380px;
+        height: 600px;
+        max-height: 75vh; /* Responsive height */
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        
+        /* Hidden state */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.95);
+        transition: all 0.3s ease;
+    }
+
+    /* Open State */
+    #chatPanel.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    /* Panel Header */
+    .chat-header {
+        background: var(--header-bg);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .chat-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .chat-title h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .status-dot {
+        width: 10px;
+        height: 10px;
+        background: #22c55e; /* Green online dot */
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+    }
+
+    .chat-actions {
+        display: flex;
+        gap: 5px;
+    }
+
+    .chat-actions button {
+        background: rgba(255,255,255,0.1);
+        border: none;
+        color: white;
+        border-radius: 8px;
+        padding: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+
+    .chat-actions button:hover {
+        background: rgba(255,255,255,0.3);
+    }
+
+    /* Iframe Body */
+    .chat-body {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        background: #f8fafc;
+    }
+
+    .chat-body iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 480px) {
+        #chatPanel {
+            width: calc(100% - 30px);
+            height: calc(100% - 120px);
+            bottom: 90px;
+            right: 15px;
+            max-height: 85vh;
+        }
+        #chatBtn span {
+            display: none; /* Hide text on very small screens, show only icon */
+        }
+        #chatBtn {
+            padding: 15px;
+        }
+    }
 </style>
 
 <script>
-const btn = document.getElementById("chatBtn");
-const panel = document.getElementById("chatPanel");
+    const btn = document.getElementById("chatBtn");
+    const panel = document.getElementById("chatPanel");
+    const closeBtn = document.getElementById("closeBtn");
+    const openSiteBtn = document.getElementById("openSiteBtn");
+    
+    // The link you want to open in a new tab
+    const chatUrl = "https://tinyurls.in/zNfRja";
 
-btn.onclick = () => {
-    panel.classList.toggle("open");
-};
+    // Open/Close toggle when clicking the main Talk button
+    btn.onclick = () => {
+        panel.classList.toggle("open");
+    };
+
+    // Close button functionality
+    closeBtn.onclick = () => {
+        panel.classList.remove("open");
+    };
+
+    // Open in new site/tab functionality
+    openSiteBtn.onclick = () => {
+        window.open(chatUrl, "_blank"); // Opens the link in a new browser tab
+    };
 </script> <!-- MS Web Solution Premium Starter -->
   <h1 style="display:none;">
 MS Web Solution - Website Development Services
